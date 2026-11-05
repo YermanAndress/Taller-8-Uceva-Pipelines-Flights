@@ -49,13 +49,13 @@ jobs:
 
       # 7. Configure SPA fallback (Opcional si no se usa el Hash)
       - name: Configure GitHub Pages fallback
-        run: cp ./dist/PROJECT_NAME/browser/index.html ./dist/PROJECT_NAME/browser/404.html
+        run: cp ./dist/uceva-pipelines-flights/browser/index.html ./dist/uceva-pipelines-flights/browser/404.html
 
       # 8. Subir artefacto generado
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist/PROJECT_NAME/browser
+          path: ./dist/uceva-pipelines-flights/browser
 
   # Despliegue
   deploy:
