@@ -1,59 +1,76 @@
-# UcevaPipelinesFlights
+# UCEVA Pipelines - SkyRoute Flights
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.6.
+Aplicación Angular desarrollada para el laboratorio de **Pipelines** de la
+asignatura Arquitectura de Software. Este proyecto implementa **Path Location
+Strategy**, por lo que las rutas son convencionales y **no incluyen el carácter
+`#`**.
 
-## Development server
+## Vistas
 
-To start a local development server, run:
+| Vista    | Ruta        | Contenido                                                       |
+| -------- | ----------- | --------------------------------------------------------------- |
+| Inicio   | `/inicio`   | Presentación, estadísticas y destinos destacados                |
+| Vuelos   | `/vuelos`   | Catálogo de vuelos con búsqueda y filtro por estado             |
+| Destinos | `/destinos` | Tarjetas de destinos con tarifa de referencia y mejor temporada |
 
-```bash
-ng serve
+La ruta raíz `/` redirige automáticamente a `/inicio`, y cualquier ruta
+desconocida también vuelve a `/inicio`.
+
+## Tecnologías
+
+- Angular 22 con componentes standalone
+- TypeScript
+- Bootstrap 5 y Bootstrap Icons (CDN)
+- Vitest para pruebas unitarias
+- Bun como gestor de paquetes
+- GitHub Actions para CI/CD
+- GitHub Pages para el despliegue
+
+## Estrategia de rutas
+
+La aplicación usa `provideRouter(routes)` sin `withHashLocation()`. Por defecto,
+Angular utiliza `PathLocationStrategy`, que produce URLs como:
+
+```text
+/inicio
+/vuelos
+/destinos
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Para que los enlaces profundos funcionen en GitHub Pages, el workflow copia
+`index.html` a `404.html`, de modo que el servidor entregue la aplicación aunque
+la ruta no exista como archivo estático.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Comandos
 
 ```bash
-ng generate --help
+# Instalar dependencias
+bun install
+
+# Servidor de desarrollo
+bun run start
+
+# Pruebas unitarias
+bun run test
+
+# Pruebas en modo no interactivo
+bun run test -- --watch=false
+
+# Build de producción
+bun run build -- --base-href /Taller-8-Uceva-Pipelines-Flights/
 ```
 
-## Building
+## Despliegue
 
-To build the project run:
+El pipeline está definido en `.github/workflows/deploy-github-pages.yml`. En cada
+_push_ a la rama `main` se instalan las dependencias con Bun, se ejecutan las
+pruebas, se genera el build de producción y se publica automáticamente en GitHub
+Pages.
 
-```bash
-ng build
-```
+- Repositorio: <https://github.com/YermanAndress/Taller-8-Uceva-Pipelines-Flights>
+- Aplicación desplegada: <https://yermanandress.github.io/Taller-8-Uceva-Pipelines-Flights/>
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Convención de commits
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+El proyecto utiliza **Conventional Commits** (`feat`, `fix`, `docs`, `refactor`,
+`chore`, `ci`, entre otros).
