@@ -1,0 +1,126 @@
+<section class="hero-section">
+  <div class="container position-relative">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <span class="eyebrow eyebrow-light">
+          <i class="bi bi-stars"></i>
+          Laboratorio de Pipelines · UCEVA
+        </span>
+        <h1 class="hero-title">
+          Tu próximo destino
+          <span>comienza aquí.</span>
+        </h1>
+        <p class="hero-lead">
+          Compara vuelos nacionales e internacionales, descubre nuevos destinos y prepara tu próxima
+          aventura desde un solo lugar.
+        </p>
+
+        <div class="d-flex flex-column flex-sm-row gap-3">
+          <a routerLink="/vuelos" class="btn btn-brand btn-lg">
+            <i class="bi bi-airplane-fill"></i>
+            Explorar vuelos
+          </a>
+          <a routerLink="/destinos" class="btn btn-ghost btn-lg">
+            <i class="bi bi-geo-alt"></i>
+            Ver destinos
+          </a>
+        </div>
+
+        <div class="row g-3 mt-4">
+          @for (stat of stats; track stat.label) {
+            <div class="col-4">
+              <div class="hero-stat">
+                <i [class]="'bi bi-' + stat.icon"></i>
+                <strong>{{ stat.value }}</strong>
+                <span>{{ stat.label }}</span>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="ticket-card">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="ticket-kicker">Próxima salida</span>
+            <span class="badge rounded-pill text-bg-light">{{ featuredFlight.status }}</span>
+          </div>
+
+          <div class="ticket-route">
+            <div>
+              <span class="airport-code">{{ featuredFlight.originCode }}</span>
+              <span class="airport-city">{{ featuredFlight.origin }}</span>
+            </div>
+            <div class="route-center">
+              <span class="route-line"></span>
+              <i class="bi bi-airplane-fill"></i>
+              <span class="route-line"></span>
+            </div>
+            <div class="text-end">
+              <span class="airport-code">{{ featuredFlight.destinationCode }}</span>
+              <span class="airport-city">{{ featuredFlight.destination }}</span>
+            </div>
+          </div>
+
+          <div class="ticket-meta">
+            <div>
+              <span>Fecha</span>
+              <strong>{{ featuredFlight.departureDate }}</strong>
+            </div>
+            <div>
+              <span>Hora</span>
+              <strong>{{ featuredFlight.departureTime }}</strong>
+            </div>
+            <div>
+              <span>Duración</span>
+              <strong>{{ featuredFlight.duration }}</strong>
+            </div>
+          </div>
+
+          <div class="ticket-footer">
+            <div>
+              <span>Desde</span>
+              <strong>{{ formatPrice(featuredFlight.price) }}</strong>
+            </div>
+            <a routerLink="/vuelos" class="btn btn-brand">Reservar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container py-5">
+  <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+    <div>
+      <span class="eyebrow">Inspiración</span>
+      <h2 class="section-title mb-0">Destinos destacados</h2>
+    </div>
+    <a routerLink="/destinos" class="link-brand">
+      Ver todos
+      <i class="bi bi-arrow-right"></i>
+    </a>
+  </div>
+
+  <div class="row g-4">
+    @for (destination of featuredDestinations; track destination.id) {
+      <div class="col-md-6 col-lg-4">
+        <app-destination-card [destination]="destination" />
+      </div>
+    }
+  </div>
+</section>
+
+<section class="container pb-5">
+  <div class="cta-panel">
+    <div>
+      <span class="eyebrow eyebrow-light">¿Listo para despegar?</span>
+      <h2 class="h2 mb-2">Compara vuelos y elige tu próxima aventura</h2>
+      <p class="mb-0">
+        Explora horarios, tarifas y disponibilidad en un catálogo pensado para planear tu viaje sin
+        complicaciones.
+      </p>
+    </div>
+    <a routerLink="/vuelos" class="btn btn-light btn-lg"> Buscar vuelos </a>
+  </div>
+</section>

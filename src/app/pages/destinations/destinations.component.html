@@ -1,0 +1,30 @@
+<section class="page-head">
+  <div class="container">
+    <span class="eyebrow eyebrow-light">Destinos</span>
+    <h1>Lugares que valen un vuelo</h1>
+    <p>
+      Desde el Caribe colombiano hasta las grandes capitales del mundo: encuentra el destino que se
+      adapte a tu próxima aventura.
+    </p>
+  </div>
+</section>
+
+<section class="container py-4 py-lg-5">
+  <div class="destinations-intro">
+    <div>
+      <h2 class="section-title mb-1">Explora el catálogo</h2>
+      <p class="mb-0">
+        Cada destino incluye una tarifa de referencia y la mejor temporada para viajar.
+      </p>
+    </div>
+    <span class="destinations-count">{{ destinations.length }} destinos</span>
+  </div>
+
+  <div class="row g-4">
+    @for (destination of destinations; track destination.id) {
+      <div class="col-md-6 col-xl-4">
+        <app-destination-card [destination]="destination" />
+      </div>
+    }
+  </div>
+</section>
