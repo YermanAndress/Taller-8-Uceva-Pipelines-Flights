@@ -1,0 +1,31 @@
+<article class="destination-card">
+  <div class="destination-image">
+    <img [src]="destination.image" [alt]="'Vista de ' + destination.city" loading="lazy" />
+    <span class="destination-tag">{{ destination.tag }}</span>
+    <span class="price-pill">Desde {{ formatPrice(destination.priceFrom) }}</span>
+  </div>
+
+  <div class="destination-body">
+    <div class="d-flex justify-content-between align-items-start gap-3">
+      <div>
+        <h3 class="h5 mb-1">{{ destination.city }}</h3>
+        <p class="destination-country mb-0">
+          <i class="bi bi-geo-alt-fill"></i>
+          {{ destination.country }}
+        </p>
+      </div>
+      <span class="season-pill">{{ destination.bestSeason }}</span>
+    </div>
+
+    <p class="destination-description">{{ destination.description }}</p>
+
+    <a
+      class="btn btn-outline-brand btn-sm align-self-start"
+      [routerLink]="['/vuelos']"
+      [queryParams]="{ destino: destination.city }"
+    >
+      Buscar vuelos
+      <i class="bi bi-arrow-right"></i>
+    </a>
+  </div>
+</article>
