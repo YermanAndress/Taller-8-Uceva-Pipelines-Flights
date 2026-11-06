@@ -1,1 +1,135 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --sr-navy: #071a33;
+  --sr-blue: #1d4ed8;
+  --sr-sky: #0ea5e9;
+  --sr-ink: #0f172a;
+  --sr-muted: #64748b;
+  --sr-bg: #f4f7fb;
+  --bs-body-font-family: 'Segoe UI', 'Noto Sans', 'DejaVu Sans', Arial, sans-serif;
+  --bs-body-color: var(--sr-ink);
+  --bs-body-bg: var(--sr-bg);
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--sr-bg);
+  font-family: 'Segoe UI', 'Noto Sans', 'DejaVu Sans', Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  border-radius: 0.8rem;
+  font-weight: 700;
+}
+
+.btn-lg {
+  padding: 0.8rem 1.25rem;
+  font-size: 1rem;
+}
+
+.btn-brand {
+  border: 0;
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  box-shadow: 0 10px 24px rgba(14, 165, 233, 0.28);
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    background: linear-gradient(135deg, #1d4ed8, #0284c7);
+    box-shadow: 0 14px 30px rgba(14, 165, 233, 0.36);
+    color: #fff;
+  }
+}
+
+.btn-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    border-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+}
+
+.btn-outline-brand {
+  border: 1px solid #bfdbfe;
+  background: #fff;
+  color: #1d4ed8;
+
+  &:hover,
+  &:focus {
+    border-color: #93c5fd;
+    background: #eff6ff;
+    color: #1e40af;
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--sr-sky);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.eyebrow-light {
+  color: #7dd3fc;
+}
+
+.page-head {
+  padding: 3.8rem 0 3.4rem;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(56, 189, 248, 0.28), transparent 32%),
+    linear-gradient(130deg, #071a33, #0c4a6e);
+  color: #fff;
+
+  h1 {
+    margin: 0.55rem 0 0.8rem;
+    font-size: clamp(2.1rem, 4.5vw, 3.3rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+  }
+
+  p {
+    max-width: 700px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 1.02rem;
+    line-height: 1.65;
+  }
+}
+
+.link-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--sr-blue);
+  font-weight: 700;
+
+  &:hover {
+    color: #0c4a6e;
+  }
+}
+
+.card {
+  border-radius: 1.25rem;
+}
+
+::selection {
+  background: #bae6fd;
+  color: #082f49;
+}
